@@ -6,11 +6,11 @@ int		unicode_length(uint32_t c)
 	if ((c >= 0) && (c <= 0x7f))
 		return (1);
 	else if ((c >=0x0080) && (c <= 0x07FF))
-		return (2);
+		return (MB_CUR_MAX >= 2) ? 2 : 1;
 	else if ((c >=0x0800) && (c <= 0xFFFF))
-		return (3);
+		return (MB_CUR_MAX >= 3) ? 3 : 1;
 	else if ((c >=0x010000) && (c <= 0x10FFFF))
-		return (4);
+		return (MB_CUR_MAX >= 4) ? 4 : 1;
 	return (0);
 }
 
