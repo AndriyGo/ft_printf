@@ -47,5 +47,6 @@ void		print_2b_unicode(uint32_t c, t_format *flags, int *count);
 void		print_3b_unicode(uint32_t c, t_format *flags, int *count);
 void		print_4b_unicode(uint32_t c, t_format *flags, int *count);
 void		print_unicode(uint32_t *str, t_format *flags, int *count);
+int			ft_printf(const char * fmt, ...);
 
 #endif
