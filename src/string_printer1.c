@@ -46,7 +46,7 @@ void	print_unicode(uint32_t *str, t_format *flags, int *count)
 			print_unicode_char(*(i++), flags, count);
 		}
 	flags->min_width = w;
-	print_right_padding(flags, "", len);
+	print_right_padding(flags, len);
 	*count += (w > len) ? (w - len) : 0;
 }
 
@@ -89,6 +89,6 @@ void	print_char(char c, t_format *flags, int *count)
 	flags->precision = -1;
 	print_left_padding(flags, "", 1);
 	write(1, &c, 1);
-	print_right_padding(flags, "", 1);
+	print_right_padding(flags, 1);
 	*count += (1 >= flags->min_width) ? 1 : flags->min_width;
 }
