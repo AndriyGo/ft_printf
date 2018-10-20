@@ -20,12 +20,12 @@ all: $(NAME)
 
 $(TEMP)/%.o : $(SRC_D)/%.c
 	@mkdir -p $(TEMP)
-	gcc -Wall -Wextra -c $< -o $@
+	gcc -Wall -Wextra -Werror -c $< -o $@
 
 $(NAME): libft $(OBJS)
 	@cp libft/libft.a ./$(NAME)
 	@ar rc $(NAME) $(OBJS) libft/*.o
-	#s@ranlib $(NAME)
+	@ranlib $(NAME)
 
 .PHONY: libft
 libft:

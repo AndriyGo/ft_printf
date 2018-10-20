@@ -24,8 +24,7 @@ void	print_unicode(uint32_t *str, t_format *flags, int *count)
 	len = 0;
 	if (str == NULL)
 	{
-		flags->size = 0;
-		print_string(str, flags, count);
+		print_string((char *)str, flags, count);
 		return ;
 	}
 	i = str;
@@ -68,16 +67,11 @@ void	print_string(char *str, t_format *flags, int *count)
     char    *str2;
     char    *tmp;
 
-	if (flags->size == L)
-	{
-		print_unicode(str, flags, count);
-		return ;
-	}
     if (str == NULL)
         tmp = strdup("(null)");
     else
         tmp = str;
-    if ((flags->precision >= 0) && (flags->precision < ft_strlen(tmp)))
+    if ((flags->precision >= 0) && (flags->precision < (int)ft_strlen(tmp)))
     {
         str2 = ft_strsub(tmp, 0, flags->precision);
         flags->precision = -1;

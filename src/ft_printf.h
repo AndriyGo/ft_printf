@@ -40,11 +40,12 @@ void        cast_and_print_num(va_list *ap, int base, t_format *flags, int *coun
 void        cast_and_print_num_u(va_list *ap, int base, t_format *flags, int *count);
 void        capitalize(char *s);
 void    	print_left_padding(t_format *flags, char *prefix, int len);
-void    	print_right_padding(t_format *flags, char *prefix, int len);
+void    	print_right_padding(t_format *flags, int len);
 void		print_unicode_char(uint32_t c, t_format *flags, int *count);
 void		print_1b_unicode(uint32_t c, t_format *flags, int *count);
 void		print_2b_unicode(uint32_t c, t_format *flags, int *count);
 void		print_3b_unicode(uint32_t c, t_format *flags, int *count);
 void		print_4b_unicode(uint32_t c, t_format *flags, int *count);
+void		print_unicode(uint32_t *str, t_format *flags, int *count);
 
 #endif

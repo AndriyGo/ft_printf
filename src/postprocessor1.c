@@ -36,7 +36,7 @@ void    print_left_padding(t_format *flags, char *prefix, int len)
         ft_putstr(prefix);
 }
 
-void    print_right_padding(t_format *flags, char *prefix, int len)
+void    print_right_padding(t_format *flags, int len)
 {
     if (len < flags->min_width)
     {
@@ -54,7 +54,7 @@ void	display_string(char *str, t_format *flags, char *prefix, int *count)
         capitalize(str);
     print_left_padding(flags, prefix, len);
     ft_putstr(str);
-    print_right_padding(flags, prefix, len);
+    print_right_padding(flags, len);
 	*count += (len >= flags->min_width) ? len : flags->min_width;
 }
 

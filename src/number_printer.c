@@ -55,9 +55,9 @@ void    cast_and_print_num(va_list *ap, int base, t_format *flags, int *count)
     else if (flags->size == Z)
         print_number(va_arg(*ap, size_t), base, flags, count);
     else if (flags->size == HH)
-        print_number(va_arg(*ap, signed char), base, flags, count);
+        print_number(va_arg(*ap, int), base, flags, count);
     else if (flags->size == H)
-        print_number(va_arg(*ap, short int), base, flags, count);
+        print_number(va_arg(*ap, int), base, flags, count);
     else
         print_number(va_arg(*ap, int), base, flags, count);
 }
@@ -73,9 +73,9 @@ void    cast_and_print_num_u(va_list *ap, int base, t_format *flags, int *count)
     else if (flags->size == Z)
         print_number(va_arg(*ap, size_t), base, flags, count);
     else if (flags->size == HH)
-        print_number(va_arg(*ap, unsigned char), base, flags, count);
+        print_number(va_arg(*ap, unsigned int), base, flags, count);
     else if (flags->size == H)
-        print_number(va_arg(*ap, unsigned short int), base, flags, count);
+        print_number(va_arg(*ap, unsigned int), base, flags, count);
     else
         print_number(va_arg(*ap, unsigned int), base, flags, count);
 }

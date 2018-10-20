@@ -41,7 +41,7 @@ char	*num_to_base(intmax_t num, int base, t_format *flags)
 		free(cur);
 		num = num / base;
 	}
-    while ((flags->precision > 0) && (flags->precision > ft_strlen(ret)))
+    while ((flags->precision > 0) && (flags->precision > (int)ft_strlen(ret)))
     {
         tmp = ret;
         ret = ft_strjoin("0", tmp);
@@ -69,7 +69,7 @@ char    *num_to_base_u(uintmax_t num, int base, t_format *flags)
         free(cur);
         num = num / base;
     }
-    while ((flags->precision > 0) && (flags->precision > ft_strlen(ret)))
+    while ((flags->precision > 0) && (flags->precision > (int)ft_strlen(ret)))
     {
         tmp = ret;
         ret = ft_strjoin("0", tmp);

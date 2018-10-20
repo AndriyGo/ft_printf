@@ -33,7 +33,7 @@ int			ft_printf(const char * fmt, ...)
 			optimise_flags(flags);
 			if ((flags->type == 's') && (flags->size == L))
 			{
-				print_unicode(va_arg(ap, char *), flags, &count);
+				print_unicode(va_arg(ap, uint32_t *), flags, &count);
 			}
 			else if (flags->type == 's')
 			{
@@ -42,7 +42,7 @@ int			ft_printf(const char * fmt, ...)
 			else if ((flags->type == 'c') && (flags->size == L))
 				print_unicode_char(va_arg(ap, uint32_t), flags, &count);
 			else if (flags->type == 'c')
-				print_char(va_arg(ap, char), flags, &count);
+				print_char(va_arg(ap, int), flags, &count);
 			else if (flags->type == 'p')
 				print_pointer(va_arg(ap, void *), flags, &count);
 			else if (flags->type == 'u')
