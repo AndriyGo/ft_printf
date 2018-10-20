@@ -26,6 +26,8 @@ $(NAME): libft $(OBJS)
 	@cp libft/libft.a ./$(NAME)
 	@ar rc $(NAME) $(OBJS) libft/*.o
 	@ranlib $(NAME)
+	#gcc -Wall -Wextra -c main.c -o main.o
+	#gcc -o $(NAME) $(OBJS) main.o libft/libft.a
 
 .PHONY: libft
 libft:

@@ -49,6 +49,7 @@ t_format	*init_flags() {
 	ret->zero_pad = 0;
 	ret->neg_width = 0;
 	ret->space = 0;
+	ret->sign_always = 0;
 	return (ret);
 }
 
