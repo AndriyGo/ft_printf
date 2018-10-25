@@ -26,7 +26,7 @@ void		read_size(const char **size, t_format *ret)
             ret->size = Z;
 }
 
-int		read_number(const char **fmt)
+int			read_number(const char **fmt)
 {
 	int	ret;
 
@@ -53,7 +53,7 @@ t_format	*init_flags() {
 	return (ret);
 }
 
-int		read_format_specifier(const char *fmt, t_format *flags)
+int			read_format_specifier(const char *fmt, t_format *flags)
 {
 	if ((*fmt == 's') || (*fmt == 'S') || (*fmt == 'p') || (*fmt == 'd') \
 		|| (*fmt == 'D') || (*fmt == 'i') || (*fmt == 'o') || (*fmt == 'O') \
