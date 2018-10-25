@@ -8,6 +8,7 @@ SOURCES	= 	format_flags_reader.c \
 			ft_printf.c \
 			flags_optimizer.c \
 			string_printer1.c \
+			string_printer2.c \
 			postprocessor1.c \
 			number_helper.c \
 			number_printer.c \
@@ -26,8 +27,6 @@ $(NAME): libft $(OBJS)
 	@cp libft/libft.a ./$(NAME)
 	@ar rc $(NAME) $(OBJS) libft/*.o
 	@ranlib $(NAME)
-	#gcc -Wall -Wextra -c main.c -o main.o
-	#cgcc -o $(NAME) $(OBJS) main.o libft/libft.a
 
 .PHONY: libft
 libft:
