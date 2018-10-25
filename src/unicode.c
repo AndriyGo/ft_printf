@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   unicode.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: agordiyc <agordiyc@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2018/10/25 16:11:42 by agordiyc          #+#    #+#             */
+/*   Updated: 2018/10/25 16:23:03 by agordiyc         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "ft_printf.h"
 
 void	print_1b_unicode(uint32_t c, t_format *flags, int *count)
@@ -65,23 +77,19 @@ void	print_4b_unicode(uint32_t c, t_format *flags, int *count)
 	print_left_padding(flags, "", (MB_CUR_MAX >= 4) ? 4 : 0);
 	if (MB_CUR_MAX >= 4)
 	{
-		p = 0 | 0x1E;
-		p = p | ((c & 0x1C0000) >> 18);
+		p = (0 | 0x1E) | ((c & 0x1C0000) >> 18);
 		write(1, &p, 1);
 		if (MB_CUR_MAX == 1)
 			return ;
-		p = 0 | 0x80;
-		p = p | ((c & 0x3F000) >> 12);
+		p = (0 | 0x80) | ((c & 0x3F000) >> 12);
 		write(1, &p, 1);
 		if (MB_CUR_MAX == 2)
 			return ;
-		p = 0 | 0x80;
-		p = p | ((c & 0xFC0) >> 6);
+		p = (0 | 0x80) | ((c & 0xFC0) >> 6);
 		write(1, &p, 1);
 		if (MB_CUR_MAX == 3)
 			return ;
-		p = 0 | 0x80;
-		p = p | (c & 0x3F);
+		p = (0 | 0x80) | (c & 0x3F);
 		write(1, &p, 1);
 	}
 	print_right_padding(flags, (MB_CUR_MAX >= 4) ? 4 : 0);

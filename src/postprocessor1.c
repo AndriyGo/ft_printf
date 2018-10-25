@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   postprocessor1.c                                   :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: agordiyc <agordiyc@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2018/10/25 16:11:42 by agordiyc          #+#    #+#             */
+/*   Updated: 2018/10/25 18:27:35 by agordiyc         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "ft_printf.h"
 #include "../libft/libft.h"
 
@@ -12,24 +24,22 @@ void	print_left_padding(t_format *flags, char *prefix, int len)
 	if (len < flags->min_width)
 	{
 		if (flags->neg_width == 1)
+			ft_putstr(prefix);
+		else if ((flags->zero_pad == 1) && (!((flags->min_width > \
+				flags->precision) && (flags->precision >= 0)) || (flags->type \
+				== 'c') || (flags->type == 's')))
 		{
 			ft_putstr(prefix);
-		}
-		else 
-		{
-			if (flags->zero_pad == 1)
-			{
-				ft_putstr(prefix);
-				if (flags->precision < 0)
-					print_rep('0', flags->min_width - len);
-				else
-					print_rep(' ', flags->min_width - len);
-			}
+			if ((flags->precision < 0) || (flags->type == 'c') || \
+				(flags->type == 's'))
+				print_rep('0', flags->min_width - len);
 			else
-			{
 				print_rep(' ', flags->min_width - len);
-				ft_putstr(prefix);
-			}
+		}
+		else
+		{
+			print_rep(' ', flags->min_width - len);
+			ft_putstr(prefix);
 		}
 	}
 	else
